@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #302b63, #1a1a2e, #302b63, #1a1a2e);
+            color: #fff;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        form {
+            max-width: 400px;
+            background: linear-gradient(to right, #151515, #0d0d0d);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #666;
+            box-sizing: border-box;
+            border-radius: 4px;
+            background: linear-gradient(to right, #2a2a2a, #1a1a2e);
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added box shadow */
+        }
+
+        .file-upload-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label.file-upload {
+            display: inline-block;
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added box shadow */
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label.file-upload:hover {
+            background: linear-gradient(to right, #0056b3, #003c80);
+        }
+
+        p.suggestion {
+            color: #aaa;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        p.error {
+            color: red;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(to right, #4CAF50, #398f43);
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added box shadow */
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #45a049, #3a8442);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="file-upload-container">
+            <label class="file-upload">
+                <span>Choose a CSV file</span>
+                <input type="file" name="csv" accept=".csv">
+            </label>
+        </div>
+        <p><input type="number" name="n_estimator" placeholder="Enter number of estimators"></p>
+        <p class="suggestion">*if you don't know what this is, consider entering 100</p>
+        <p><input type="text" name="finding_col" placeholder="Enter the target column name"></p>
+        <p><input type="text" name="ratio" placeholder="Enter train to test ratio"></p>
+        
+        {% if not val_found %}
+        <p class="error">Incorrect value, please try again</p>
+        {% endif %}
+
+        <p><input type="submit"></p>
+    </form>
+
+</body>
+</html>

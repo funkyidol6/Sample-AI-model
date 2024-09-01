@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #0d0d0d, #1a1a1a, #0d0d0d, #1a1a1a);
+            color: #fff;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        form {
+            max-width: 400px;
+            background: linear-gradient(to right, #151515, #0d0d0d);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        input, select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #333;
+            box-sizing: border-box;
+            border-radius: 4px;
+            background: #2a2a2a;
+            color: #fff;
+        }
+
+        input:focus, select:focus {
+            background: #2a2a2a;
+            color: #fff;
+            border-color: #555;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(to right, #0056b3, #003c80);
+            transform: scale(1.05);
+        }
+
+        p {
+            color: #aaa;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        span.mpae {
+            color: #ffbf00; /* Yellow color for MPAE value */
+        }
+
+        div.data {
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post" enctype="multipart/form-data">
+        <input name="val" placeholder="Comma-separated values">
+        <p>*inputs are comma-separated</p><br><br>
+        <p>mean absolute percentage error of the model: <span class="mpae">{{ mpae*100 }}</span></p>
+        <p>{{ data }}</p>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="data">
+        
+    </div>
+
+</body>
+</html>
+
+
